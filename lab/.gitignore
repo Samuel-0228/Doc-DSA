@@ -1,0 +1,9 @@
+.vscode
+.vscode\
+*.code-workspace
+output\
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
