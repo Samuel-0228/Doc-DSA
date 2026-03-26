@@ -38,36 +38,12 @@ void bubbleSort(int a[], int n)
     }
 }
 
-void selectionSort(int arr[], int n)
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        int minIndex = i;
-
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[j] < arr[minIndex])
-            {
-                minIndex = j;
-            }
-        }
-
-        if (minIndex != i)
-        {
-            cout << "Swapped " << arr[i] << " and " << arr[minIndex] << endl;
-            int temp = arr[i];
-            arr[i] = arr[minIndex];
-            arr[minIndex] = temp;
-        }
-    }
-}
-
 int main()
 {
     int arr[] = {3, 55, 66, 1, 11, 20};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     bubbleSort(arr, n);
-    //selectionSort(arr, n);
+
     printsorted(arr, n);
 }
