@@ -49,6 +49,35 @@ Node *InsertAtEnd(Node *head, int data)
     return head;
 }
 
+Node *InsertAtMiddle(Node *head, int data)
+{
+    Node *NewNode = createNode(data);
+
+    if (head == NULL)
+        return NewNode;
+
+    Node *slow = head;
+    Node *fast = head;
+    Node *prev = NULL;
+
+    while (fast != NULL && fast->next != NULL)
+    {
+        prev = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    if (prev == NULL)
+    {
+        NewNode->next = head;
+        return NewNode;
+    }
+
+    prev->next = NewNode;
+    NewNode->next = slow;
+    return head;
+}
+
 Node *DeleteNode(Node *head, int key)
 {
     Node *temp = head;
