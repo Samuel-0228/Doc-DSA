@@ -10,6 +10,7 @@ int main()
 
     bool found = false;
     int low = 0, high = 7;
+    int counter = 1;
 
     while (low <= high)
     {
@@ -19,6 +20,7 @@ int main()
         {
             found = true;
             cout << "Name found at " << mid + 1 << endl;
+            cout << "found in turn: " << counter;
             break;
         }
         else if (names[mid] < target)
@@ -29,6 +31,7 @@ int main()
         {
             high = mid - 1;
         }
+        counter++;
     }
     if (!found)
     {
