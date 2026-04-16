@@ -49,7 +49,7 @@ Node *InsertAtEnd(Node *head, int data)
     return head;
 }
 
-Node *InsertAtMiddle(Node *head, int data) // Need to revise this
+Node *InsertAtMiddle(Node *head, int data)
 {
     Node *NewNode = createNode(data);
 
@@ -87,8 +87,7 @@ Node *DeleteNode(Node *head, int key)
     {
         head = temp->next;
         delete temp;
-        return head; // we deleted temp and returned head
-        // so now is head Null???
+        return head;
     }
     while (temp != NULL && temp->data != key)
     {
