@@ -1,6 +1,6 @@
 #include <iostream>
-using namespace std;
 
+using namespace std;
 class stack
 {
     int top;
@@ -43,6 +43,8 @@ int main()
     stack s;
     s.push(2);
     s.push(20);
+    s.push(30);
     s.pop();
+    cout << "The top: " << endl;
     s.peek();
 }
