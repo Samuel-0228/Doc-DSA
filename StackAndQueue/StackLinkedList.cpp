@@ -9,6 +9,10 @@ struct stack
 
 stack *top = NULL;
 
+bool isempty()
+{
+    return top == NULL;
+}
 void push(int x)
 {
     stack *temp = new stack();
@@ -19,12 +23,13 @@ void push(int x)
 
 void pop()
 {
-    if (top == NULL)
+    if (isempty())
         cout << "stack empty\n";
     else
     {
         stack *temp = top;
         top = top->next;
+        cout << temp->data << " - Poped\n";
         delete temp;
     }
 }
@@ -32,12 +37,23 @@ void pop()
 void peek()
 {
 
-    if (top == NULL)
+    if (isempty())
         cout << "The stack is empty\n";
     else
     {
         cout << top->data;
     }
+}
+
+void viewStack()
+{
+    stack *temp = top;
+    while (temp != NULL)
+    {
+        cout << temp->data << "--";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main()
@@ -48,6 +64,8 @@ int main()
     push(40);
     pop();
     pop();
+
+    viewStack();
 
     peek();
 }

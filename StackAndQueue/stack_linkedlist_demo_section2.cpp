@@ -3,42 +3,44 @@
 using namespace std;
 
 // Create an empty Singly LL STACK
-struct STACK{
+struct STACK
+{
     int data;
     STACK *next;
-}*top = NULL;
+} *top = NULL;
 
-
-bool isEmpty(){
+bool isEmpty()
+{
     return top == NULL;
 }
 
-
 // basic operations
-void push(int value){
-    STACK *n=  new STACK;
+void push(int value)
+{
+    STACK *n = new STACK;
     n->data = value;
-    if(isEmpty()){
+    if (isEmpty())
+    {
         n->next = NULL;
     }
-    else{
+    else
+    {
         n->next = top;
     }
     top = n;
-    cout<<value<<" - Pushed."<<endl;
+    cout << value << " - Pushed." << endl;
 }
 
-void viewStack(){
+void viewStack()
+{
     STACK *temp = top;
-    while(temp != NULL){
-        cout<<temp->data<<"--";
+    while (temp != NULL)
+    {
+        cout << temp->data << "--";
         temp = temp->next;
     }
-    cout<<endl;
+    cout << endl;
 }
-
-
-
 
 int main()
 {

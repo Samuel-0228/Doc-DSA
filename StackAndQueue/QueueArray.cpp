@@ -1,63 +1,66 @@
 #include <iostream>
 using namespace std;
+#define max 5
 
-class queue
+int queue[max];
+
+int rear = -1;
+int front = -1;
+int count = 0;
+
+bool isfull()
 {
-    int arr[100];
-    int front, rear;
+    // return ((rear + 1) % max == front);
+    return (count == max);
+}
 
-public:
-    queue()
+bool isEmpty()
+{
+    // return (front == -1);
+    return (count == 0);
+}
+
+void enqueue(int value)
+{
+    if (isfull())
     {
+        cout << "queue is full" << endl;
+        return;
+    }
+
+    if (front == -1)
         front = 0;
-        rear = -1;
+
+    rear = (rear + 1) % max;
+    queue[rear] = value;
+    count++;
+    cout << value << "-- enqueued" << endl;
+}
+
+int dequeue()
+{
+    if (isEmpty())
+    {
+        cout << "queue is empty" << endl;
+        return -1;
     }
 
-    void enqueue(int x)
-    {
-        if (rear == 99)
-            cout << "Queue overflow\n";
-        else
-            rear++;
-        arr[rear] = x;
-    }
-
-    void display()
-    {
-        if (front > rear)
-        {
-            cout << "Queue is empty\n";
-            return;
-        }
-        cout << "Queue: ";
-        for (int i = front; i <= rear; i++)
-        {
-            cout << arr[i] << " ";
-        }
-        cout << endl;
-    }
-
-    void dequeue()
-    {
-        if (front > rear)
-        {
-            cout << "Queue is empty\n";
-            return;
-        }
-        front++;
-    }
-};
+    int value = queue[front];
+    front--;
+    count--;
+    cout << value << "-- dequeued" << endl;
+    return value;
+}
 
 int main()
 {
-    queue q;
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.enqueue(40);
-    q.display();
-
-    cout << "After deleting 10 \n";
-    q.dequeue();
-    q.display();
+    enqueue(20);
+    enqueue(22);
+    enqueue(24);
+    enqueue(40);
+    enqueue(255);
+    enqueue(455); // queue is full
+    dequeue();    // 20 dequeued leaving one space in the queue
+    enqueue(555); // 555 enqueued in the space left by 20
+    enqueue(655);
 }

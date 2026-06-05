@@ -6,10 +6,17 @@ using namespace std;
 int main()
 {
     stack<int> s;
-    s.push(2);
-    s.push(20);
-    s.push(30);
+
+    for (int i = 0; i < 10; i++)
+    {
+        s.push(5 * i + 2);
+        cout << s.top() << " ";
+    }
+
+    int n = s.size();
+    cout << "\nThe size: " << n << endl;
+
     s.pop();
-    cout << "The top: " << endl;
+    cout << "The top after pop: " << endl;
     cout << s.top() << endl;
 }
